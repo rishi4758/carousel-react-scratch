@@ -74,9 +74,8 @@ img {
   text-decoration: none;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
   font-weight: 600;
-  margin: 25px 0 0 0;
+  margin: 25px 5px 0 0;
   position: relative;
 }
 .slides > div:hover .toolTipText {
@@ -85,10 +84,10 @@ img {
 .slider > a:hover {
   top: 1px;
   background: #000;
+  border: solid 2px #eee;
+  color: "#fff";
 }
-.slider > a:focus {
-  background: #000;
-}
+
 @media (max-width: 600px) {
   .slider {
     width: 320px;
