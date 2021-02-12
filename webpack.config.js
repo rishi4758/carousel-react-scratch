@@ -1,0 +1,33 @@
+const path = require("path");
+const isProd = process.env.NODE_ENV === "production";
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+module.exports = {
+  entry: "./index.js",
+  mode: isProd ? "production" : "development",
+  output: {
+    path: path.join(__dirname, "/dist"),
+    filename: "index_bundle.js",
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js|jsx$/,
+        exclude: /node_modules/,
+        use: { loader: "babel-loader" },
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.png|svg|jpg|gif$/,
+        use: "file-loader",
+      },
+      {
+        test: /\.json$/,
+        use: "json-loader",
+      },
+    ],
+  },
+  plugins: [new HtmlWebpackPlugin({ template: "index.html", minify: true })],
+};
